@@ -1,0 +1,244 @@
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2291760         0.64 Cache hits
+MAIN.cache_miss                        230419         0.06 Cache misses
+MAIN.s_fetch                        230419         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524621825          .   Bytes in use
+MSE4_MEM.g_objects                            13          .   Number of objects in memory.
+MSE4_MEM.g_space                      78020608          .   Bytes available
+MSE4_MEM.c_allocation                        237375         0.07 Memory allocations
+MSE4_MEM.c_free                        237240         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      3.39%     689.2MiB / 7.751GiB   8.68%     41.4GB / 2.22TB   170MB / 21.6GB   276
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2292152         0.64 Cache hits
+MAIN.cache_miss                        230427         0.06 Cache misses
+MAIN.s_fetch                        230427         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      79736832          .   Bytes available
+MSE4_MEM.c_allocation                        237479         0.07 Memory allocations
+MSE4_MEM.c_free                        237343         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.74%     708.8MiB / 7.751GiB   8.93%     41.9GB / 2.24TB   170MB / 21.6GB   628
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."             
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2292936         0.64 Cache hits
+MAIN.cache_miss                        230443         0.06 Cache misses
+MAIN.s_fetch                        230443         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      91860992          .   Bytes available
+MSE4_MEM.c_allocation                        237687         0.07 Memory allocations
+MSE4_MEM.c_free                        237551         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.62%     704.8MiB / 7.751GiB   8.88%     42.9GB / 2.29TB   170MB / 21.6GB   628
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2293328         0.64 Cache hits
+MAIN.cache_miss                        230451         0.06 Cache misses
+MAIN.s_fetch                        230451         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      91537408          .   Bytes available
+MSE4_MEM.c_allocation                        237791         0.07 Memory allocations
+MSE4_MEM.c_free                        237655         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.73%     708.1MiB / 7.751GiB   8.92%     43.5GB / 2.31TB   170MB / 21.6GB   606
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."             
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2294112         0.64 Cache hits
+MAIN.cache_miss                        230467         0.06 Cache misses
+MAIN.s_fetch                        230467         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      91402240          .   Bytes available
+MSE4_MEM.c_allocation                        237999         0.07 Memory allocations
+MSE4_MEM.c_free                        237863         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      9.95%     706.4MiB / 7.751GiB   8.90%     44.5GB / 2.35TB   170MB / 21.6GB   493
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2294504         0.64 Cache hits
+MAIN.cache_miss                        230475         0.06 Cache misses
+MAIN.s_fetch                        230475         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      93601792          .   Bytes available
+MSE4_MEM.c_allocation                        238103         0.07 Memory allocations
+MSE4_MEM.c_free                        237967         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O        PIDS
+525fbfcdc618   orca      8.65%     704.8MiB / 7.751GiB   8.88%     45GB / 2.37TB   170MB / 21.6GB   493
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."             
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2295288         0.64 Cache hits
+MAIN.cache_miss                        230491         0.06 Cache misses
+MAIN.s_fetch                        230491         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      88002560          .   Bytes available
+MSE4_MEM.c_allocation                        238311         0.07 Memory allocations
+MSE4_MEM.c_free                        238175         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.49%     701.6MiB / 7.751GiB   8.84%     46.1GB / 2.41TB   170MB / 21.7GB   446
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2295680         0.64 Cache hits
+MAIN.cache_miss                        230499         0.06 Cache misses
+MAIN.s_fetch                        230499         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      86732800          .   Bytes available
+MSE4_MEM.c_allocation                        238415         0.07 Memory allocations
+MSE4_MEM.c_free                        238279         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      3.97%     700.1MiB / 7.751GiB   8.82%     46.6GB / 2.43TB   170MB / 21.7GB   440
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."             
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2296464         0.64 Cache hits
+MAIN.cache_miss                        230515         0.06 Cache misses
+MAIN.s_fetch                        230515         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      79454208          .   Bytes available
+MSE4_MEM.c_allocation                        238623         0.07 Memory allocations
+MSE4_MEM.c_free                        238487         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      9.33%     691.9MiB / 7.751GiB   8.72%     47.6GB / 2.47TB   170MB / 21.7GB   369
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2296856         0.64 Cache hits
+MAIN.cache_miss                        230523         0.06 Cache misses
+MAIN.s_fetch                        230523         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      77475840          .   Bytes available
+MSE4_MEM.c_allocation                        238727         0.07 Memory allocations
+MSE4_MEM.c_free                        238591         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.55%     692.4MiB / 7.751GiB   8.72%     48.1GB / 2.49TB   170MB / 21.7GB   367
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.26%     691.1MiB / 7.751GiB   8.71%     48.1GB / 2.49TB   170MB / 21.7GB   367
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."             
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishadm param.set memory_target 600M
+
+ubuntu@test1orca:~$ docker exec orca varnishadm param.show memory_target
+memory_target
+        Value is: 600M [bytes|percentage]
+        Default is: "80.00%"
+        Minimum is: 1M
+
+        Target RssAnon memory usage of the cache worker process
+        when the memory governor is active (see varnish-mse(7)).
+        May be specified as either a percentage of total system
+        memory on the server, or a an byte value. Negative byte values
+        are read as the memory size to not use. A zero byte target
+        is permitted, but if a positive byte value is specified it
+        needs to be greater than the minimum value.
+        May be changed at runtime.
+
+
+ubuntu@test1orca:~$ docker exec orca varnishadm ban req.url "~" "."
+
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2297640         0.64 Cache hits
+MAIN.cache_miss                        230539         0.06 Cache misses
+MAIN.s_fetch                        230539         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      77430784          .   Bytes available
+MSE4_MEM.c_allocation                        238935         0.07 Memory allocations
+MSE4_MEM.c_free                        238799         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.13%     685.5MiB / 7.751GiB   8.64%     49.1GB / 2.53TB   170MB / 21.7GB   313
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2297712         0.64 Cache hits
+MAIN.cache_miss                        230547         0.06 Cache misses
+MAIN.s_fetch                        230547         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      78909440          .   Bytes available
+MSE4_MEM.c_allocation                        239039         0.07 Memory allocations
+MSE4_MEM.c_free                        238903         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.10%     680.6MiB / 7.751GiB   8.58%     49.6GB / 2.54TB   170MB / 21.7GB   302
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2297792         0.64 Cache hits
+MAIN.cache_miss                        230547         0.06 Cache misses
+MAIN.s_fetch                        230547         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     524630017          .   Bytes in use
+MSE4_MEM.g_objects                            14          .   Number of objects in memory.
+MSE4_MEM.g_space                      77074432          .   Bytes available
+MSE4_MEM.c_allocation                        239039         0.07 Memory allocations
+MSE4_MEM.c_free                        238903         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           960         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      5.20%     680.7MiB / 7.751GiB   8.58%     49.6GB / 2.54TB   170MB / 21.7GB   294
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2297873         0.64 Cache hits
+MAIN.cache_miss                        230556         0.06 Cache misses
+MAIN.s_fetch                        230556         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     423761843          .   Bytes in use
+MSE4_MEM.g_objects                             8          .   Number of objects in memory.
+MSE4_MEM.g_space                     178810880          .   Bytes available
+MSE4_MEM.c_allocation                        239140         0.07 Memory allocations
+MSE4_MEM.c_free                        239034         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           971         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O        PIDS
+525fbfcdc618   orca      5.08%     583.4MiB / 7.751GiB   7.35%     50GB / 2.55TB   170MB / 21.7GB   289
+ubuntu@test1orca:~$ docker exec orca varnishstat -1 | grep -E "MAIN.cache_hit |MAIN.cache_miss |MAIN.s_fetch |MSE4_MEM.c_eviction |MSE4_MEM.c_eviction_skipped |MSE4_MEM.c_allocation |MSE4_MEM.c_free |MSE4_MEM.g_bytes |MSE4_MEM.g_space |MSE4_MEM.g_objects "
+MAIN.cache_hit                       2297946         0.64 Cache hits
+MAIN.cache_miss                        230563         0.06 Cache misses
+MAIN.s_fetch                        230563         0.06 Total backend fetches initiated
+MSE4_MEM.g_bytes                     452869883          .   Bytes in use
+MSE4_MEM.g_objects                             7          .   Number of objects in memory.
+MSE4_MEM.g_space                     150876160          .   Bytes available
+MSE4_MEM.c_allocation                        239237         0.07 Memory allocations
+MSE4_MEM.c_free                        239124         0.07 Number of memory chunk releases
+MSE4_MEM.c_eviction                           979         0.00 Number of evicted objects or persisted chunks
+MSE4_MEM.c_eviction_skipped                             2         0.00 Number of times an object eviction is skipped
+ubuntu@test1orca:~$ docker stats orca --no-stream                               CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+525fbfcdc618   orca      4.74%     610.3MiB / 7.751GiB   7.69%     50.5GB / 2.55TB   170MB / 21.7GB   289
+ubuntu@test1orca:~$ docker exec orca varnishadm param.set memory_target 7G
+
+ubuntu@test1orca:~$ ^C
