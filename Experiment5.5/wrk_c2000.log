@@ -1,0 +1,10 @@
+Running 10s test @ http://192.168.45.207:80/v2/rps-test/repo0/manifests/v0
+  4 threads and 2000 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   100.14ms   47.52ms 422.35ms   73.45%
+    Req/Sec     2.45k   672.76     3.84k    75.63%
+  97225 requests in 10.09s, 51.17MB read
+  Socket errors: connect 0, read 0, write 0, timeout 1
+  Non-2xx or 3xx responses: 96231
+Requests/sec:   9638.64
+Transfer/sec:      5.07MB
